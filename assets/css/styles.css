@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: grid;
+  grid-template-areas:
+    "nav"
+    "filters"
+    "main"
+    "pagination"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto auto;
+  min-height: 100vh;
+}
+
+.nav {
+  grid-area: nav;
+  background-color: #0b4c8c;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.nav-logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo .mdi {
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.hamburger {
+  display: flex;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.filters {
+  grid-area: filters;
+  padding: 1rem;
+  font-size: 1.2rem;
+  padding-left: 2rem;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filters select {
+  font-size: 1.2rem;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.filters label {
+  font-weight: bold;
+}
+
+.main-content {
+  grid-area: main;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card p {
+  font-size: 1.5rem;
+}
+
+.card button {
+  background-color: #0b4c8c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #084170;
+}
+
+.pagination {
+  grid-area: pagination;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  gap: 0.5rem;
+}
+
+.pagination button {
+  border: 1px solid #0b4c8c;
+  background: white;
+  color: #0b4c8c;
+  padding: 0.4rem 0.8rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.pagination button.active,
+.pagination button:hover {
+  background: #0b4c8c;
+  color: white;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #0b4c8c;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 576px) {
+  body {
+    grid-template-areas:
+      "nav filters"
+      "nav main"
+      "nav pagination"
+      "footer pagination";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    min-height: 100vh;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: unset;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .pagination {
+    justify-content: center;
+    padding-right: 2rem;
+  }
+}
